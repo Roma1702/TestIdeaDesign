@@ -133,8 +133,77 @@
             --app-logo-serice-color: var(--white-100);
         }
 
-        .amount:hover + .show {
+        .card {
+            height: 350px;
+        }
+
+        .in-basket {
+            height: 420px;
+        }
+
+        .card-description {
+            align-self: stretch;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 14px;
+        }
+
+        .card-name {
+            font-size: 12px;
+            padding-left: 4px;
+            padding-right: 4px;
+            padding-top: 4px;
+            height: 24px;
+            text-align: center;
+            color: white;
+            line-weight: 400;
+            line-height: 14px;
+            background: rgba(39, 43, 58, 0.60);
+            position: absolute;
+            border-radius: 4px;
+            top: 5px;
+            left: 5px;
+        }
+
+        .tag {
+            border-radius: 4px;
+            position: absolute;
+            color: #272B3A;
+            bottom: 0;
+            left: 15px;
+            background: #F4F4F5;
+            gap: 4px;
+            padding-left: 4px;
+            padding-right: 4px;
+        }
+
+        .amount {
+            display: flex;
+            padding: 2px 0px;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .show {
+            display: none;
+            align-items: flex-start;
+            gap: 4px;
+        }
+
+        .card:hover .show {
             display: block;
+            height: 420px;
+        }
+
+        .card:hover {
+            height: 400px;
+        }
+
+        .shop-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 4px;
         }
     </style>
     <script type="text/javascript" src="https://cdn.ideadrive.su/v2.1.2/js/init.js"></script>
@@ -185,7 +254,8 @@
                        data-toggle="tooltip" data-placement="bottom">
                         <i class="i i-support-chat"></i>
                     </a>
-                    <a href="javascript:;" class="btn btn-icon btn-flat" data-title="Вопросы" data-toggle="tooltip"
+                    <a href="javascript:;" class="btn btn-icon btn-flat" data-title="Вопрос - ответ"
+                       data-toggle="tooltip"
                        data-placement="bottom">
                         <i class="i i-service-faq"></i>
                     </a>
@@ -208,7 +278,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="top-bar-item top-bar-item-right px-0 d-flex">
+            <div class="top-bar-item top-bar-item-right d-flex">
                 <div class="dropdown">
                     <button class="btn-account d-flex d-md-none" type="button" data-toggle="aside"
                             data-target="user-menu" aria-label="toggle user menu">
@@ -224,7 +294,7 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right dropdown-user-menu">
                         <div class="user-info">
-                            <div class="account-type">Бизнес аккаунт</div>
+                            <div class="account-type">Личный аккаунт</div>
                             <div class="info-card">
                                         <span class="user-avatar user-avatar-m">
                                             <span>K</span>
@@ -234,41 +304,34 @@
                                                 <span class="caption">№ кабинета:</span>
                                                 <span class="id">12345</span>
                                             </span>
-                                    <span class="slave">this.is.very.long.user.email.address@example.com</span>
+                                    <span class="slave">email@mail.com</span>
                                 </div>
                             </div>
                             <div class="data">
-                                <span class="primary">ООО Название компании может быть несколько строк</span>
-                                <span class="slave">Фамилия Имя Отчество</span>
-                                <span class="slave">+375291112233</span>
+                                <span class="primary">Фамилия Имя Отчество</span>
                             </div>
                         </div>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><i class="i i-home"></i>Главная страница сервисов</a>
-                        <a class="dropdown-item" href="#"><i class="i i-setting"></i>Настройки профиля владельца
-                            аккаунта</a>
-                        <a class="dropdown-item" href="#"><i class="i i-log-out"></i>Выход из системы</a>
+                        <a class="dropdown-item" href="#"><i class="i i-support-chat"></i>Чат техподдержки</a>
+                        <a class="dropdown-item" href="#"><i class="i i-service-faq"></i>Вопрос - ответ</a>
+                        <a class="dropdown-item" href="#"><i class="i i-notification"></i>Уведомления</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;" data-toggle="theme" data-theme="dark"><i
-                                class="i i-moon"></i>Темная тема</a>
-                        <a class="dropdown-item" href="javascript:;" data-toggle="theme" data-theme="light"><i
-                                class="i i-sun"></i>Светлая тема</a>
+                        <div class="d-flex justify-content-between">
+                            <div class="dropdown-item">Баланс</div>
+                            <a href="javascript:;" class="btn btn-icon-text d-none d-sm-inline-flex mr-3">
+                                <i class="i i-dollar left"></i>
+                                <div class="amount amount-s">
+                                    <span class="price">42,00</span>
+                                    <span class="currency">BYN</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Label</a>
+                        <a class="dropdown-item" href="#">Label</a>
+                        <a class="dropdown-item" href="#">Label</a>
                     </div>
                 </div>
-                <div class="dropdown">
-                    <button class="btn btn-icon btn-flat" id="languageButton" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                        <i class="i i-world"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageButton">
-                        <a class="dropdown-item active" href="javascript:;"><i class="i i-flag"></i>English</a>
-                        <a class="dropdown-item" href="javascript:;"><i class="i i-flag"></i>Русский</a>
-                    </div>
-                </div>
-                <a href="javascript:;" class="btn btn-flat btn-icon" data-toggle="aside"
-                   data-target="app-settings-aside">
-                    <i class="i i-setting"></i>
-                </a>
             </div>
         </div>
     </div>
@@ -310,7 +373,6 @@
         <footer class="aside-footer">
             <div class="links">
                 <a href="#"><i class="i i-link"></i><span class="text">Публичный договор</span></a>
-                <a href="#"><i class="i i-world"></i><span class="text">English version</span></a>
             </div>
             <div class="dropdown-divider"></div>
             <span class="copyright hide-compact text-left">Powered by IWL</span>
@@ -371,66 +433,6 @@
     </div>
 </aside>
 
-<aside id="app-settings-aside" class="app-aside app-aside-right" data-scroll-top="true">
-    <div class="aside-container">
-        <div class="aside-content">
-            <label class="custom-select custom-select-sm" for="language-select">
-                <select data-toggle="select" name="lang" id="language-select">
-                    <option value="ru">Русский</option>
-                    <option value="en" selected>English</option>
-                </select>
-                <span class="placeholder">Language</span>
-                <span class="error-message" aria-live="polite"></span>
-            </label>
-            <div class="dropdown-divider"></div>
-            <div class="custom-switch">
-                <input type="checkbox" name="toggle-sidebar-dark" id="toggle-sidebar-dark">
-                <label for="toggle-sidebar-dark">
-                    <div class="text">
-                        <span class="caption">Dark sidebar</span>
-                        <span class="message"></span>
-                    </div>
-                    <span class="slider"></span>
-                </label>
-            </div>
-            <div class="dropdown-divider"></div>
-            <div class="btn-group">
-                <a class="btn btn-icon-text btn-flat" href="javascript:;" data-toggle="theme" data-theme="dark"><i
-                        class="i i-moon"></i>Темная тема</a>
-                <a class="btn btn-icon-text btn-flat" href="javascript:;" data-toggle="theme" data-theme="light"><i
-                        class="i i-sun"></i>Светлая тема</a>
-            </div>
-            <div class="dropdown-divider"></div>
-            <div>
-                <button class="btn btn-flat btn-block" id="enable-desktop-notification">Desktop notification</button>
-                <script type="text/javascript">
-                    (function () {
-                        let btn = document.getElementById('enable-desktop-notification');
-                        let allowNotification = !("Notification" in window);
-                        let perm = Notification.permission === "granted";
-
-                        if (!window.isSecureContext || allowNotification || perm) {
-                            btn.disabled = true;
-                            let span = document.createElement('span');
-                            span.classList.add('d-block');
-                            if (perm || allowNotification) {
-                                span.textContent = 'Уже включено';
-                            } else {
-                                span.textContent = 'Недоступно для текущего контекста';
-                            }
-                            btn.parentNode.insertBefore(span, btn.nextSibling);
-                        } else {
-                            btn.addEventListener('click', function () {
-                                DRIVE.desktopNotification.notify('Test');
-                            });
-                        }
-                    })();
-                </script>
-            </div>
-        </div>
-    </div>
-</aside>
-
 <main class="app-main mb-5">
     <div class="content-header">
         <div class="container-fluid">
@@ -445,15 +447,18 @@
                             <div class="col-12 col-md-3 col-lg-3">
                                 <h6 class="dropdown-header">Категории</h6>
                                 <button class="btn btn-flat-primary btn-icon-text dropdown-toggle" type="button"
-                                        id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
                                     Label
                                 </button>
                                 <button class="btn btn-flat-primary btn-icon-text dropdown-toggle" type="button"
-                                        id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
                                     Label
                                 </button>
                                 <button class="btn btn-flat-primary btn-icon-text dropdown-toggle" type="button"
-                                        id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
                                     Label
                                 </button>
                             </div>
@@ -489,10 +494,10 @@
         </div>
     </nav>
 
-    <div class="row mx-0 pl-4">
-        <div class="col-12 col-md-8 col-lg-9">
+    <div class="row mx-0">
+        <div class="col-12 col-md-8 col-lg-9 px-5">
             <div class="row cards">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 pb-3">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 pb-3 px-0">
                     <div class="container-fluid d-flex justify-content-between px-0">
                         <label class="custom-select custom-select-sm w-25" for="select1">
                             <select data-toggle="select" name="select1" id="select1">
@@ -511,120 +516,134 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-lg-4 px-0">
                     <div class="card">
                         <div style="position: relative">
                             <img src="img/Rectangle3.png" class="card-img-top embed-responsive-item" alt="product">
                             <a class="btn btn-icon btn-xs position-absolute" href="javascript:;"
                                style="position: absolute; top: 5px; right: 5px;"><i class="i i-heart"></i></a>
-                            <label style="position: absolute; color: #272B3A;bottom: 0px; left: 5px;">5637657</label>
+                            <label class="tag">5637657</label>
                         </div>
                         <div class="card-body pt-2">
-                            <p class="card-title">Продукт творожный "Десертный" МСП с ванилином и изюмом, контейнер 400г</p>
-                            <div class="amount amount-l">
+                            <p class="card-title card-description">Продукт творожный "Десертный" МСП с ванилином и
+                                изюмом, контейнер 400г</p>
+                            <div class="amount amount-s">
                                 <span class="price">42,00</span>
                                 <span class="currency">BYN</span>
                             </div>
-                            <div class="show d-none">
-                                Test block
+                            <div class="show py-4">
+                                <div class="shop-wrapper">
+                                    <a class="btn btn-icon btn-s" href="javascript:;"><i class="i i-minus"></i></a>
+                                    <input class="w-25 align-self-center" type="number" placeholder="1" />
+                                    <a class="btn btn-icon btn-s" href="javascript:;"><i class="i i-plus"></i></a>
+                                    <a class="btn btn-icon btn-s btn-primary" href="javascript:;"><i class="i i-shopping-cart"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-lg-4 px-0">
                     <div class="card">
                         <div style="position: relative">
                             <img src="img/Rectangle2.png" class="card-img-top embed-responsive-item" alt="product">
                             <a class="btn btn-icon btn-danger btn-xs position-absolute" href="javascript:;"
                                style="position: absolute; top: 5px; right: 5px;"><i class="i i-heart"></i></a>
-                            <label style="position: absolute; color: #272B3A;bottom: 0px; left: 5px;">5637657</label>
+                            <label class="tag">5637657</label>
                         </div>
                         <div class="card-body pt-2">
-                            <p class="card-title">Продукт творожный "Десертный" МСП с ванилином и изюмом, контейнер 400г</p>
-                            <div class="amount amount-l">
+                            <p class="card-title card-description">Продукт творожный "Десертный" МСП с ванилином и
+                                изюмом, контейнер 400г</p>
+                            <div class="amount amount-s">
                                 <span class="price">42,00</span>
                                 <span class="currency">BYN</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-4">
-                    <div class="card">
+                <div class="col-12 col-lg-4 px-0 position-relative">
+                    <div class="card in-basket" style="position: absolute; z-index: 1">
                         <div style="position: relative">
                             <img src="img/Rectangle1.png" class="card-img-top embed-responsive-item" alt="product">
                             <a class="btn btn-icon btn-xs position-absolute" href="javascript:;"
                                style="position: absolute; top: 5px; right: 5px;"><i class="i i-heart"></i></a>
-                            <label style="position: absolute; color: #272B3A;bottom: 0px; left: 5px;">5637657</label>
-                            <label style="position: absolute; color: #272B3A;top: 0px; left: 5px;">ОАО "Домочай название..."</label>
+                            <label class="tag">5637657</label>
+                            <div class="card-name">
+                                ОАО "Домочай
+                                название...
+                            </div>
                         </div>
                         <div class="card-body pt-2">
-                            <p class="card-title">Пирожное "Рецепты лучших кофеен" с наполнителем "Клубника" на вафле 100г</p>
-                            <div class="amount amount-l">
+                            <p class="card-title card-description">Пирожное "Рецепты лучших кофеен" с наполнителем
+                                "Клубника" на вафле 100г</p>
+                            <div class="amount amount-s">
                                 <span class="price">42,00</span>
                                 <span class="currency">BYN</span>
                             </div>
-                            <div class="pt-3" style="position: absolute; z-index: 1">
+                            <div class="pt-3">
                                 <a class="btn btn-icon btn-success btn-s w-100 d-flex justify-content-center py-2 text"
                                    href="javascript:;"><i class="i i-check-square"></i>В корзине</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-lg-4 px-0">
                     <div class="card">
                         <div style="position: relative">
                             <img src="img/Rectangle3.png" class="card-img-top embed-responsive-item" alt="product">
                             <a class="btn btn-icon btn-xs position-absolute" href="javascript:;"
                                style="position: absolute; top: 5px; right: 5px;"><i class="i i-heart"></i></a>
-                            <label style="position: absolute; color: #272B3A;bottom: 0px; left: 5px;">5637657</label>
+                            <label class="tag">5637657</label>
                         </div>
                         <div class="card-body pt-2">
-                            <p class="card-title">Продукт творожный "Десертный" МСП с ванилином и изюмом, контейнер 400г</p>
-                            <div class="amount amount-l">
+                            <p class="card-title card-description">Мороженое "Выросли-поняли" пломбир шоколадный 70г</p>
+                            <div class="amount amount-s">
                                 <span class="price">42,00</span>
                                 <span class="currency">BYN</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-lg-4 px-0">
                     <div class="card">
                         <div style="position: relative">
                             <img src="img/Rectangle3.png" class="card-img-top embed-responsive-item" alt="product">
                             <a class="btn btn-icon btn-xs position-absolute" href="javascript:;"
                                style="position: absolute; top: 5px; right: 5px;"><i class="i i-heart"></i></a>
-                            <label style="position: absolute; color: #272B3A;bottom: 0px; left: 5px;">5637657</label>
+                            <label class="tag">5637657</label>
                         </div>
                         <div class="card-body pt-2">
-                            <p class="card-title">Продукт творожный "Десертный" МСП с ванилином и изюмом, контейнер 400г</p>
-                            <div class="amount amount-l">
+                            <p class="card-title card-description">Мороженое "Выросли-поняли" пломбир ванильный,
+                                бумажный пакет 900г</p>
+                            <div class="amount amount-s">
                                 <span class="price">42,00</span>
                                 <span class="currency">BYN</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-lg-4 px-0">
                     <div class="card">
                         <div style="position: relative">
                             <img src="img/Rectangle3.png" class="card-img-top embed-responsive-item" alt="product">
                             <a class="btn btn-icon btn-xs position-absolute" href="javascript:;"
                                style="position: absolute; top: 5px; right: 5px;"><i class="i i-heart"></i></a>
-                            <label style="position: absolute; color: #272B3A;bottom: 0px; left: 5px;">5637657</label>
+                            <label class="tag">5637657</label>
                         </div>
                         <div class="card-body pt-2">
-                            <p class="card-title">Продукт творожный "Десертный" МСП с ванилином и изюмом, контейнер 400г</p>
-                            <div class="amount amount-l">
+                            <p class="card-title card-description">Продукт творожный "Десертный" МСП с ванилином и
+                                изюмом, контейнер 400г</p>
+                            <div class="amount amount-s">
                                 <span class="price">42,00</span>
                                 <span class="currency">BYN</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 pt-5">
+                <div class="col-12 pt-5 px-0">
                     <div class="pagination">
                         <nav aria-label="Page navigation">
-                            <a class="btn btn-flat btn-icon disabled" href="javascript:;"><i class="i i-chevron-left"></i></a>
+                            <a class="btn btn-flat btn-icon disabled" href="javascript:;"><i
+                                    class="i i-chevron-left"></i></a>
                             <a class="btn btn-flat disabled" href="javascript:;">1</a>
                             <a class="btn btn-flat" href="javascript:;">2</a>
                             <a class="btn btn-flat" href="javascript:;">3</a>
