@@ -7,7 +7,6 @@ let count = 1;
 arrayLikes.forEach(like => {
     const parent = like.parentNode;
     like.addEventListener('click', () => {
-        console.log('zxc')
         if (parent.classList.contains('btn-danger')) {
             count -= 1;
             counter.innerHTML = `<i class="i i-heart"></i> ${count}`;

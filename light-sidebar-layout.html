@@ -224,8 +224,44 @@
             height: 540px;
             position: absolute;
             background-color: white;
-            top: 0px;
-            left: 225px; /* Выравниваем справа */
+            top: 0;
+            left: 225px;
+        }
+
+        .filter-button {
+            display: none;
+        }
+
+        .filter-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .product-h {
+            display: none;
+        }
+
+        @media (max-width: 767.98px) {
+            .filter-button {
+                display: block;
+            }
+
+            .col-12.col-md-4.col-lg-3 {
+                display: none;
+            }
+
+            .product-h {
+                display: block;
+            }
+
+            .product {
+                display: none;
+            }
+
+            .icons {
+                display: none;
+            }
         }
     </style>
     <script type="text/javascript" src="https://cdn.ideadrive.su/v2.1.2/js/init.js"></script>
@@ -267,7 +303,7 @@
                         data-target="app-main-menu" aria-label="toggle menu">
                     <i class="i i-menu"></i>
                 </button>
-                <div class="d-sm-inline-flex pr-4">
+                <div class="d-sm-inline-flex pr-4 text-nowrap">
                     <span class="caption">№ кабинета:</span>
                     <span class="id">12345</span>
                 </div>
@@ -300,7 +336,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="top-bar-item top-bar-item-right d-flex">
+            <div class="top-bar-item top-bar-item-right px-0 d-flex">
                 <div class="dropdown">
                     <button class="btn-account d-flex d-md-none" type="button" data-toggle="aside"
                             data-target="user-menu" aria-label="toggle user menu">
@@ -458,19 +494,25 @@
 <main class="app-main mb-5">
     <div class="content-header">
         <div class="container-fluid">
-            <div class="dropdown" style="width: 208px">
-                <button class="btn btn-icon-text dropdown-toggle" type="button" id="dropdownMenuButton"
+            <div class="dropdown text-nowrap">
+                <button class="btn btn-icon-text dropdown-toggle text-nowrap" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                 <span class="ml-2">Каталог</span>
                 <div class="dropdown-menu dropdown-menu-primary dropdown-menu-xs" aria-labelledby="dropdownMenuButton">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-12 col-md-3 col-lg-3 category-popup" style="height: 500px;"><h6
-                                    class="dropdown-header">Категории</h6>
-                                <a class="btn btn-flat-primary btn-icon-text category-child" id="dropdownMenuButton2"
-                                   data-toggle="dropdown" aria-haspopup="true"
-                                   aria-expanded="false"> Label
-                                    <i class="i i-arrow-right"></i> </a>
+                            <div class="col-12 col-md-3 col-lg-3">
+                                <h6 class="dropdown-header">Категории</h6>
+                                <div class="d-flex justify-content-between">
+                                    <a class="btn btn-flat-primary btn-icon-text category-child"
+                                       id="dropdownMenuButton2"
+                                       data-toggle="dropdown" aria-haspopup="true"
+                                       aria-expanded="false"> Label
+                                    </a>
+                                    <a class="btn btn-flat-primary d-none">
+                                        <i class="i i-arrow-right"></i>
+                                    </a>
+                                </div>
                                 <div class="subcategories">
                                     <div class="container">
                                         <div class="row" style="color: black">
@@ -508,31 +550,50 @@
                                 <a class="btn btn-flat-primary btn-icon-text category-child"
                                    id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false"> Label
-                                </a> <a class="btn btn-flat-primary btn-icon-text category-child"
-                                        id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false"> Label
-                                </a></div>
+                                </a> <br>
+                                <a class="btn btn-flat-primary btn-icon-text category-child"
+                                   id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false"> Label
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="custom-field-button-group inbox custom-field-button-group-sm ml-3" style="width: 448px"><label
-                    class="custom-field">
-                <input type="text" placeholder="&nbsp;"/> <span class="placeholder">Поиск</span>
-            </label>
-                <div class="btn btn-flat btn-icon" data-title="This is input tooltip">
-                    <i class="i i-search"></i></div>
+
+            <div class="custom-field-button-group inbox custom-field-button-group-sm m-auto w-50">
+                <label class="custom-field">
+                    <input type="text" placeholder="&nbsp;"/>
+                    <span class="placeholder">Поиск</span>
+                    <span class="error-message" aria-live="polite"></span>
+                </label>
+                <button class="btn btn-flat btn-icon" data-title="This is input tooltip">
+                    <i class="i i-search"></i>
+                </button>
+            </div>
+
+            <div class="top-bar-item top-bar-item-right pl-4">
+                <a class="btn btn-icon counter-likes" href="javascript:;">
+                    <i class="i i-heart"></i>0
+                </a>
+                <a class="btn btn-icon counter-carts" href="javascript:;">
+                    <i class="i i-shopping-cart"></i>0
+                </a>
             </div>
         </div>
-        <div class="dropdown-divider"></div>
-        <div class="d-flex ml-3" style="gap: 0.5rem; width: 208px; height: 40px;">
-            <a class="btn btn-icon counter-likes" href="javascript:;"><i class="i i-heart"></i>1</a> <a
-                class="btn btn-icon counter-carts" href="javascript:;"><i class="i i-shopping-cart"></i>0</a>
-        </div>
     </div>
-    <div class="dropdown-divider"></div>
 
     <div class="container-fluid">
+        <div class="row mb-2 filter-button">
+            <div class="col-12 w-100 my-2">
+                Все товары
+            </div>
+            <div class="col-12">
+                <a class="btn btn-icon-text has-notified w-100 justify-content-center" href="javascript:;">
+                    <i class="i i-sliders"></i>Фильтрация
+                </a>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12">
                 <nav aria-label="breadcrumb">
@@ -583,10 +644,12 @@
                                 </div>
                                 <div class="show-hover py-4">
                                     <div class="shop-wrapper">
-                                        <a class="btn btn-icon btn-s" href="javascript:;"><i class="i i-minus"></i></a>
+                                        <a class="btn btn-icon btn-s subtract-btn" href="javascript:;"><i
+                                                class="i i-minus"></i></a>
                                         <input class="w-25 text-center countElement" type="text" value="1"/>
-                                        <a class="btn btn-icon btn-s" href="javascript:;"><i class="i i-plus"></i></a>
-                                        <a class="btn btn-icon btn-s btn-primary" href="javascript:;"><i
+                                        <a class="btn btn-icon btn-s add-btn" href="javascript:;"><i
+                                                class="i i-plus"></i></a>
+                                        <a class="btn btn-icon btn-s btn-primary add-to-cart-btn" href="javascript:;"><i
                                                 class="i i-shopping-cart"></i></a>
                                     </div>
                                 </div>
@@ -610,10 +673,12 @@
                                 </div>
                                 <div class="show-hover py-4">
                                     <div class="shop-wrapper">
-                                        <a class="btn btn-icon btn-s" href="javascript:;"><i class="i i-minus"></i></a>
-                                        <input class="w-25 text-center" type="text" value="1"/>
-                                        <a class="btn btn-icon btn-s" href="javascript:;"><i class="i i-plus"></i></a>
-                                        <a class="btn btn-icon btn-s btn-primary" href="javascript:;"><i
+                                        <a class="btn btn-icon btn-s subtract-btn" href="javascript:;"><i
+                                                class="i i-minus"></i></a>
+                                        <input class="w-25 text-center countElement" type="text" value="1"/>
+                                        <a class="btn btn-icon btn-s add-btn" href="javascript:;"><i
+                                                class="i i-plus"></i></a>
+                                        <a class="btn btn-icon btn-s btn-primary add-to-cart-btn" href="javascript:;"><i
                                                 class="i i-shopping-cart"></i></a>
                                     </div>
                                 </div>
@@ -661,10 +726,12 @@
                                 </div>
                                 <div class="show-hover py-4">
                                     <div class="shop-wrapper">
-                                        <a class="btn btn-icon btn-s" href="javascript:;"><i class="i i-minus"></i></a>
-                                        <input class="w-25 text-center" type="text" value="1"/>
-                                        <a class="btn btn-icon btn-s" href="javascript:;"><i class="i i-plus"></i></a>
-                                        <a class="btn btn-icon btn-s btn-primary" href="javascript:;"><i
+                                        <a class="btn btn-icon btn-s subtract-btn" href="javascript:;"><i
+                                                class="i i-minus"></i></a>
+                                        <input class="w-25 text-center countElement" type="text" value="1"/>
+                                        <a class="btn btn-icon btn-s add-btn" href="javascript:;"><i
+                                                class="i i-plus"></i></a>
+                                        <a class="btn btn-icon btn-s btn-primary add-to-cart-btn" href="javascript:;"><i
                                                 class="i i-shopping-cart"></i></a>
                                     </div>
                                 </div>
@@ -687,10 +754,12 @@
                                 </div>
                                 <div class="show-hover py-4">
                                     <div class="shop-wrapper">
-                                        <a class="btn btn-icon btn-s" href="javascript:;"><i class="i i-minus"></i></a>
-                                        <input class="w-25 text-center" type="text" value="1"/>
-                                        <a class="btn btn-icon btn-s" href="javascript:;"><i class="i i-plus"></i></a>
-                                        <a class="btn btn-icon btn-s btn-primary" href="javascript:;"><i
+                                        <a class="btn btn-icon btn-s subtract-btn" href="javascript:;"><i
+                                                class="i i-minus"></i></a>
+                                        <input class="w-25 text-center countElement" type="text" value="1"/>
+                                        <a class="btn btn-icon btn-s add-btn" href="javascript:;"><i
+                                                class="i i-plus"></i></a>
+                                        <a class="btn btn-icon btn-s btn-primary add-to-cart-btn" href="javascript:;"><i
                                                 class="i i-shopping-cart"></i></a>
                                     </div>
                                 </div>
@@ -713,17 +782,19 @@
                                 </div>
                                 <div class="show-hover py-4">
                                     <div class="shop-wrapper">
-                                        <a class="btn btn-icon btn-s" href="javascript:;"><i class="i i-minus"></i></a>
-                                        <input class="w-25 text-center" type="text" value="1"/>
-                                        <a class="btn btn-icon btn-s" href="javascript:;"><i class="i i-plus"></i></a>
-                                        <a class="btn btn-icon btn-s btn-primary" href="javascript:;"><i
+                                        <a class="btn btn-icon btn-s subtract-btn" href="javascript:;"><i
+                                                class="i i-minus"></i></a>
+                                        <input class="w-25 text-center countElement" type="text" value="1"/>
+                                        <a class="btn btn-icon btn-s add-btn" href="javascript:;"><i
+                                                class="i i-plus"></i></a>
+                                        <a class="btn btn-icon btn-s btn-primary add-to-cart-btn" href="javascript:;"><i
                                                 class="i i-shopping-cart"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 px-0 product-h d-none">
+                    <div class="col-12 px-0 product-h">
                         <div class="card">
                             <div class="row g-0">
                                 <div class="col-md-4">
@@ -744,12 +815,13 @@
                                                 <span class="currency">BYN</span>
                                             </div>
                                             <div>
-                                                <a class="btn btn-icon btn-s" href="javascript:;"><i
+                                                <a class="btn btn-icon btn-s subtract-btn" href="javascript:;"><i
                                                         class="i i-minus"></i></a>
-                                                <input class="w-25 text-center" type="text" value="1"/>
+                                                <input class="w-25 text-center countElement" type="text" value="1"/>
                                                 <a class="btn btn-icon btn-s" href="javascript:;"><i
-                                                        class="i i-plus"></i></a>
-                                                <a class="btn btn-icon btn-s btn-primary" href="javascript:;"><i
+                                                        class="i i-plus add-btn"></i></a>
+                                                <a class="btn btn-icon btn-s btn-primary add-to-cart-btn"
+                                                   href="javascript:;"><i
                                                         class="i i-shopping-cart"></i></a>
                                             </div>
                                         </div>
@@ -758,7 +830,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 px-0 product-h d-none">
+                    <div class="col-12 px-0 product-h">
                         <div class="card">
                             <div class="row g-0">
                                 <div class="col-md-4">
@@ -779,12 +851,13 @@
                                                 <span class="currency">BYN</span>
                                             </div>
                                             <div>
-                                                <a class="btn btn-icon btn-s" href="javascript:;"><i
+                                                <a class="btn btn-icon btn-s subtract-btn" href="javascript:;"><i
                                                         class="i i-minus"></i></a>
-                                                <input class="w-25 text-center" type="text" value="1"/>
+                                                <input class="w-25 text-center countElement" type="text" value="1"/>
                                                 <a class="btn btn-icon btn-s" href="javascript:;"><i
-                                                        class="i i-plus"></i></a>
-                                                <a class="btn btn-icon btn-s btn-primary" href="javascript:;"><i
+                                                        class="i i-plus add-btn"></i></a>
+                                                <a class="btn btn-icon btn-s btn-primary add-to-cart-btn"
+                                                   href="javascript:;"><i
                                                         class="i i-shopping-cart"></i></a>
                                             </div>
                                         </div>
@@ -793,7 +866,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 px-0 product-h d-none">
+                    <div class="col-12 px-0 product-h">
                         <div class="card">
                             <div class="row g-0">
                                 <div class="col-md-4">
@@ -814,12 +887,13 @@
                                                 <span class="currency">BYN</span>
                                             </div>
                                             <div>
-                                                <a class="btn btn-icon btn-s" href="javascript:;"><i
+                                                <a class="btn btn-icon btn-s subtract-btn" href="javascript:;"><i
                                                         class="i i-minus"></i></a>
-                                                <input class="w-25 text-center" type="text" value="1"/>
+                                                <input class="w-25 text-center countElement" type="text" value="1"/>
                                                 <a class="btn btn-icon btn-s" href="javascript:;"><i
-                                                        class="i i-plus"></i></a>
-                                                <a class="btn btn-icon btn-s btn-primary" href="javascript:;"><i
+                                                        class="i i-plus add-btn"></i></a>
+                                                <a class="btn btn-icon btn-s btn-primary add-to-cart-btn"
+                                                   href="javascript:;"><i
                                                         class="i i-shopping-cart"></i></a>
                                             </div>
                                         </div>
@@ -828,7 +902,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 px-0 product-h d-none">
+                    <div class="col-12 px-0 product-h">
                         <div class="card">
                             <div class="row g-0">
                                 <div class="col-md-4">
@@ -849,12 +923,13 @@
                                                 <span class="currency">BYN</span>
                                             </div>
                                             <div>
-                                                <a class="btn btn-icon btn-s" href="javascript:;"><i
+                                                <a class="btn btn-icon btn-s subtract-btn" href="javascript:;"><i
                                                         class="i i-minus"></i></a>
-                                                <input class="w-25 text-center" type="text" value="1"/>
+                                                <input class="w-25 text-center countElement" type="text" value="1"/>
                                                 <a class="btn btn-icon btn-s" href="javascript:;"><i
-                                                        class="i i-plus"></i></a>
-                                                <a class="btn btn-icon btn-s btn-primary" href="javascript:;"><i
+                                                        class="i i-plus add-btn"></i></a>
+                                                <a class="btn btn-icon btn-s btn-primary add-to-cart-btn"
+                                                   href="javascript:;"><i
                                                         class="i i-shopping-cart"></i></a>
                                             </div>
                                         </div>
@@ -863,7 +938,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 px-0 product-h d-none">
+                    <div class="col-12 px-0 product-h">
                         <div class="card">
                             <div class="row g-0">
                                 <div class="col-md-4">
@@ -884,12 +959,13 @@
                                                 <span class="currency">BYN</span>
                                             </div>
                                             <div>
-                                                <a class="btn btn-icon btn-s" href="javascript:;"><i
+                                                <a class="btn btn-icon btn-s subtract-btn" href="javascript:;"><i
                                                         class="i i-minus"></i></a>
-                                                <input class="w-25 text-center" type="text" value="1"/>
+                                                <input class="w-25 text-center countElement" type="text" value="1"/>
                                                 <a class="btn btn-icon btn-s" href="javascript:;"><i
-                                                        class="i i-plus"></i></a>
-                                                <a class="btn btn-icon btn-s btn-primary" href="javascript:;"><i
+                                                        class="i i-plus add-btn"></i></a>
+                                                <a class="btn btn-icon btn-s btn-primary add-to-cart-btn"
+                                                   href="javascript:;"><i
                                                         class="i i-shopping-cart"></i></a>
                                             </div>
                                         </div>
@@ -898,7 +974,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 px-0 product-h d-none">
+                    <div class="col-12 px-0 product-h">
                         <div class="card">
                             <div class="row g-0">
                                 <div class="col-md-4">
@@ -919,12 +995,13 @@
                                                 <span class="currency">BYN</span>
                                             </div>
                                             <div>
-                                                <a class="btn btn-icon btn-s" href="javascript:;"><i
+                                                <a class="btn btn-icon btn-s subtract-btn" href="javascript:;"><i
                                                         class="i i-minus"></i></a>
-                                                <input class="w-25 text-center" type="text" value="1"/>
+                                                <input class="w-25 text-center countElement" type="text" value="1"/>
                                                 <a class="btn btn-icon btn-s" href="javascript:;"><i
-                                                        class="i i-plus"></i></a>
-                                                <a class="btn btn-icon btn-s btn-primary" href="javascript:;"><i
+                                                        class="i i-plus add-btn"></i></a>
+                                                <a class="btn btn-icon btn-s btn-primary add-to-cart-btn"
+                                                   href="javascript:;"><i
                                                         class="i i-shopping-cart"></i></a>
                                             </div>
                                         </div>
@@ -966,7 +1043,7 @@
             <div class="col-12 col-md-4 col-lg-3">
                 <div class="row">
                     <div class="col-12">
-                        <div class="filter-field" style="display: flex;flex-direction: column;gap: 1rem;">
+                        <div class="filter-fields">
                             <div>Каталог</div>
                             <label class="custom-select custom-select-sm" for="select2" style="min-width: inherit">
                                 <select data-toggle="select" name="select2" id="select2">
@@ -1059,7 +1136,7 @@
 <script type="text/javascript" src="https://cdn.ideadrive.su/v2.1.2/js/select2/i18n/en.js"></script>
 <!-- <script type="text/javascript" src="/static/js/main.js?v=1.0.0"></script> -->
 <script type="text/javascript" src="js/layout.js"></script>
-<script type="text/javascript" src="js/cardCounter.js"></script>
+<script type="text/javascript" src="js/cartCounter.js"></script>
 <script type="text/javascript" src="js/likeCounter.js"></script>
 <script type="text/javascript" src="js/popup.js"></script>
 <!-- Required -->
