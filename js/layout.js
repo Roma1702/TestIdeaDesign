@@ -1,26 +1,25 @@
-var parallelButton = document.getElementById("parallel");
-var gridButton = document.getElementById("grid");
-
-parallelButton.addEventListener('click', function () {
-    var productList = document.querySelectorAll('.product');
+const gridButton = document.getElementById("grid");
+const parallelButton = document.getElementById("parallel");
+gridButton.addEventListener('click', function () {
+    let productList = document.querySelectorAll('.product');
     productList.forEach(function(product) {
-        product.style.display = "none";
+        product.classList.remove("d-none");
     });
 
-    var productHList = document.querySelectorAll('.product-h');
+    let productHList = document.querySelectorAll('.product-h');
     productHList.forEach(function(productH) {
-        productH.style.display = "block";
+        productH.classList.add("d-none");
     });
 })
 
-gridButton.addEventListener('click', function () {
-    var productList = document.querySelectorAll('.product');
+parallelButton.addEventListener('click', function () {
+    let productList = document.querySelectorAll('.product');
     productList.forEach(function(product) {
-        product.style.display = "block";
+        product.classList.add("d-none");
     });
 
-    var productHList = document.querySelectorAll('.product-h');
+    let productHList = document.querySelectorAll('.product-h');
     productHList.forEach(function(productH) {
-        productH.style.display = "none";
+        productH.classList.remove("d-none");
     });
 })
