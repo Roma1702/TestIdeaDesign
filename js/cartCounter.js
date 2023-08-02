@@ -24,9 +24,13 @@ addButtons.forEach(function (button, index) {
         arrayIndexCount.set(index, productCount);
     });
 });
-cartButtons.forEach(function (button) {
+cartButtons.forEach(function (button, index) {
     button.addEventListener('click', function () {
         const countElement = button.parentElement.querySelector('.countElement');
+
+        let productCount = parseInt(countElement.value);
+        arrayIndexCount.set(index, productCount);
+
         counterCarts.innerHTML = `<i class="i i-shopping-cart"></i> ${arrayIndexCount.size}`;
     });
 });
