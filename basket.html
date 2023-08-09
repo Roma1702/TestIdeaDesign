@@ -375,18 +375,17 @@
             <nav class="stacked-menu">
                 <ul class="menu">
                     <li class="menu-item active">
-                        <a class="menu-link" href="javascript:;">
+                        <a class="menu-link" href="./catalog.html">
                             <i class="i i-folder"></i> <span class="caption">Каталог</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a class="menu-link" href="javascript:;">
+                        <a class="menu-link" href="./orders.html">
                             <i class="i i-document-list"></i> <span class="caption">Заказы</span>
                         </a>
                     </li>
-                    <div class="dropdown-divider"></div>
                     <li class="menu-item">
-                        <a class="menu-link" href="javascript:;">
+                        <a class="menu-link" href="./settings.html">
                             <i class="i i-setting"></i> <span class="caption">Настройки</span>
                         </a>
                     </li>
@@ -888,23 +887,12 @@
                                         <span class="align-self-center" style="font-size: 13px">Требуется добавить&nbsp;</span>
                                         <a class="btn btn-warning" href="javascript:;" data-toggle="modal" data-target="#addAddress">адрес доставки</a>
                                     </div>
-                                    <label class="custom-select custom-select-sm pb-3 show-point-of-issue">
-                                        <select data-toggle="select" name="select1" id="select41">
-                                            <optgroup label="Выберите">
-                                                <option value="1">Беларусь, Могилёвская область, Могилёв, ул. Подгорная,
-                                                    д.1, оф.112
-                                                </option>
-                                            </optgroup>
-                                        </select>
-                                        <span class="placeholder">Пункт выдачи</span>
-                                        <span class="error-message" aria-live="polite"></span>
-                                    </label>
-                                    <div class="modal fade" id="addAddress2" tabindex="-1" aria-labelledby="addAddressLabel2" aria-hidden="true">
+                                    <div class="modal fade" id="addAddress" tabindex="-1" aria-labelledby="addAddressLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <div class="modal-title" id="addAddressLabel2">
-                                                        <span class="title">Добавление адреса достаки</span>
+                                                        <span class="title">Добавление адреса доставки</span>
                                                     </div>
                                                     <button class="close-modal btn btn-icon btn-flat btn-xs" data-dismiss="modal" aria-label="Close">
                                                         <i class="i i-cross"></i>
@@ -981,6 +969,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <label class="custom-select custom-select-sm pb-3 show-point-of-issue">
+                                        <select data-toggle="select" name="select1" id="select41">
+                                            <optgroup label="Выберите">
+                                                <option value="1">Беларусь, Могилёвская область, Могилёв, ул. Подгорная,
+                                                    д.1, оф.112
+                                                </option>
+                                            </optgroup>
+                                        </select>
+                                        <span class="placeholder">Пункт выдачи</span>
+                                        <span class="error-message" aria-live="polite"></span>
+                                    </label>
                                 </div>
                                 <div class="col-12 col-sm-6 pt-3">
                                     <label class="custom-field custom-field-icon date custom-field-sm">

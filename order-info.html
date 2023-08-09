@@ -148,6 +148,14 @@
       display: none;
     }
 
+    .order-name {
+      display: none;
+    }
+
+    .log-md {
+      display: none;
+    }
+
     @media (max-width: 767.98px) {
       .top-bar-list {
         background: #E7EDFB;
@@ -161,10 +169,6 @@
         display: block;
       }
 
-      .log {
-        display: none;
-      }
-
       .subheader-lg {
         display: none;
       }
@@ -173,8 +177,21 @@
         display: block;
       }
 
-      .currency {
-        padding-top: 0;
+      .order-name {
+        display: block;
+      }
+
+      .log-lg {
+        display: none;
+      }
+
+      .log-md {
+        display: block;
+      }
+
+      .payment {
+        margin-left: 12px !important;
+        margin-top: 16px;
       }
     }
   </style>
@@ -326,18 +343,17 @@
       <nav class="stacked-menu">
         <ul class="menu">
           <li class="menu-item">
-            <a class="menu-link" href="javascript:;">
+            <a class="menu-link" href="./catalog.html">
               <i class="i i-folder"></i> <span class="caption">Каталог</span>
             </a>
           </li>
           <li class="menu-item active">
-            <a class="menu-link" href="javascript:;">
+            <a class="menu-link" href="./orders.html">
               <i class="i i-document-list"></i> <span class="caption">Заказы</span>
             </a>
           </li>
-          <div class="dropdown-divider"></div>
           <li class="menu-item">
-            <a class="menu-link" href="javascript:;">
+            <a class="menu-link" href="./settings.html">
               <i class="i i-setting"></i> <span class="caption">Настройки</span>
             </a>
           </li>
@@ -427,7 +443,7 @@
               </div>
             </div>
           </div>
-          <div class="col-auto align-self-center subheader-md">Заказы</div>
+          <div class="col-auto align-self-center subheader-md">0001</div>
         </div>
       </div>
 
@@ -452,25 +468,46 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-12 col-md">
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Товары</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Данные заказа</a>
-          </li>
-        </ul>
+      <div class="col-12 order-name">
+        <div class="row p-3 pb-4">
+          <div class="col-12 p-3" style="border-radius: 8px; background: var(--background-gray-1-light, #F1F3F5);">
+            <div class="mb-1">ОАО "Домочай"</div>
+            <div class="d-flex" style="gap: 4px; color: #272B3A99">
+              <span>12.08.2020</span>
+              <span>10:45</span>
+            </div>
+            <a class="btn btn-icon-text btn-primary btn-s mt-3" href="javascript:;"
+               style="font-size: 14px;"
+               data-toggle="modal" data-target="#addAddress"><i class="i i-dot-big"></i>Новый заказ</a>
+          </div>
+        </div>
       </div>
-      <div class="col-12 col-md-auto currency">
-        <ul class="nav nav-tabs flex-row-reverse log">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Журнал</a>
-          </li>
-        </ul>
+      <div class="col-12">
+        <div class="row">
+          <div class="col">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link" href="./order-content.html">Товары</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="./order-info.html">Данные заказа</a>
+              </li>
+              <li class="nav-item log-md">
+                <a class="nav-link" href="./order-log.html">Журнал</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-auto log-lg">
+            <ul class="nav nav-tabs flex-row-reverse">
+              <li class="nav-item">
+                <a class="nav-link" href="./order-log.html">Журнал</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="row pt-3">
-        <div class="col-md-8 mr-5">
+      <div class="row pt-3 justify-content-between">
+        <div class="col-md mr-5">
           <div class="pb-3">Данные заказа</div>
           <label class="custom-field w-50 pb-3">
             <input type="text" placeholder="&nbsp;" disabled value="12.02.2022" />
@@ -493,9 +530,9 @@
             <span class="error-message" aria-live="polite"></span>
           </label>
         </div>
-        <div class="col-md">
-          <div class="row mb-4 p-4" style="border-radius: 8px; background: var(--background-gray-1-light, #F1F3F5);">
-            <div class="col-12">
+        <div class="col-md-auto payment">
+          <div class="row mb-4" style="border-radius: 8px; background: var(--background-gray-1-light, #F1F3F5);">
+            <div class="col-12 p-4">
               <div class="row border-bottom">
                 <div class="col-12 mb-3">Оплата </div>
               </div>
@@ -612,7 +649,6 @@
 <script type="text/javascript" src="https://cdn.ideadrive.su/v2.1.2/js/select2/i18n/en.js"></script>
 <!-- <script type="text/javascript" src="/static/js/main.js?v=1.0.0"></script> -->
 <script type="text/javascript" src="js/search.js"></script>
-<script type="text/javascript" src="js/orders-show-filter.js"></script>
 <!-- Required -->
 <script type="text/javascript">
   $(document).ready(function () {
