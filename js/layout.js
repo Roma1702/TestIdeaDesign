@@ -10,6 +10,9 @@ gridButton.addEventListener('click', function () {
     productHList.forEach(function(productH) {
         productH.classList.add("d-none");
     });
+
+    gridButton.classList.add("active");
+    parallelButton.classList.remove("active");
 })
 
 parallelButton.addEventListener('click', function () {
@@ -22,4 +25,7 @@ parallelButton.addEventListener('click', function () {
     productHList.forEach(function(productH) {
         productH.classList.remove("d-none");
     });
+
+    parallelButton.classList.add("active");
+    gridButton.classList.remove("active");
 })
