@@ -1,8 +1,20 @@
-const categoryBtn = document.querySelector(".category-child");
-const subcategories = document.querySelector(".subcategories");
-const labels = document.querySelectorAll('.category-list div:not(:first-child)');
+const labels = document.querySelectorAll('.category-list a');
 const title = document.querySelector('.category-title');
 const children = document.querySelector('.category-child');
+
+const button = document.getElementById('catalog');
+
+function changeTarget() {
+    if (window.innerWidth < 768) {
+        button.dataset.target = '#modal-sm';
+    } else {
+        button.dataset.target = '#modal-lg';
+    }
+}
+
+changeTarget();
+
+window.addEventListener('resize', changeTarget);
 
 labels.forEach(label => {
     label.addEventListener('mouseenter', () => {
